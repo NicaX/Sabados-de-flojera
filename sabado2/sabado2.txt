@@ -1,0 +1,44 @@
+pasar un parametro por valor, en el codigo, en el main, estou pasandole la edad, copio
+25 a un nuevo valor que va a estar dentro de la funcion, pero el valor que haga la funcion
+no va a ir al main,
+
+parametro por referencia 
+"conflicting types" (la firma y la funcion no coinciden)
+
+
+("%x" sirve para imprimir un numero en hexadecimal)
+
+
+scope (memoria que es unica de la funcion, )
+
+pasar por referencia, le agregas un "*" y la funcion toma el valor de la var. edad del main
+y cuando la llamamos al main, utilizamos el &
+
+***entonces el ejercicio quedaria***
+(agarra un valor, llamo a la funcion, lo incrementa y lo devuelve incrementado)
+
+int aumentarEdad(int* edad);
+int main()
+{
+   int edad =25;
+   printf("..%d\n",edad);
+   aumentarEdad(&edad);
+   printf("....%d\n",edad);
+   return 0;
+}
+int aumentarEdad(int *edad)
+{
+    int retorno = -1;
+    if(edad >= 0 && *edad <=110)
+    {
+        retorno =0;
+        (*edad)++;
+    }
+
+    printf("...%d\n", *edad);
+    return retorno;
+}
+
+
+
+un codigo que divida 2 numeros por una funcion
