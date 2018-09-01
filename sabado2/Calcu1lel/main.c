@@ -1,24 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio_ext.h>
 #include <string.h>
 #include "math.h"
 
+void ingresarNumero(float* pNumero);
 int ingresarOpcion(void);
 
 int main()
 {
     float numeroA;
     float numeroB;
-    float resultado;
-
+    int flagA=0;
+    int flagB=0;
     int opcion;
     do
     {
 
         printf("Bienvenido!!!\n");
-        printf("1.Sumar\n");
-        printf("2.Restar\n");
+        if(flagA==1)
+        {
+        printf("1.Ingrese numero (A=%.2f)\n",numeroA);
+        }else
+        {
+        printf("1.Ingrese numero (A=x)\n");
+        }
+        if(flagB==1)
+        {
+        printf("1.Ingrese numero (B=%f)\n",numeroB);
+        }else{
+        printf("2.Ingrese numero (B=x)\n");
+        }
         printf("3.Multiplicar\n");
         printf("4.Dividir\n");
         printf("5.Factorizar\n");
@@ -28,8 +39,8 @@ int main()
         switch(opcion)
         {
         case 1:
-
-        ingresarNumero(&numeroA)
+        flagA=1;
+        ingresarNumero(&numeroA);
             /*printf("Ingrese el numero A: ");
             scanf("%f", &numeroA);
             printf("Ingrese el numero B: ");
@@ -39,7 +50,8 @@ int main()
             printf("La suma de los 2 numeros es: %f\n",resultado);*/
             break;
         case 2:
-            printf("Estoy restando!!!\n");
+            flagB=1;
+            ingresarNumero(&numeroB);
             break;
         case 3:
             printf("Estoy multiplicando!!\n");
@@ -66,4 +78,12 @@ int ingresarOpcion(void)
     scanf("%d",&opcion);
 
     return opcion;
+}
+void ingresarNumero(float* pNumero)
+{
+    printf("Ingrese un numero ");
+    //__fpurge(stdin); //para windows no funca xd
+    fflush(stdin);
+    scanf("%f",pNumero);
+
 }

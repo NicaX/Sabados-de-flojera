@@ -2,12 +2,16 @@
 #include <stdlib.h>
 #include<string.h>
 #include <stdio_ext.h>
-
-void ingresarNumero(float* numeroA)
+/*funcionalidad: funcion encargada de pedir un num y almacenarlo
+parametros: recibe una direccion de memoria
+retorno:
+*/
+void ingresarNumero(float* pNumero)
 {
     printf("Ingrese un numero ");
     //__fpurge(stdin); //para windows no funca xd
-    scanf("%f",numeroA);
+    fflush(stdin);
+    scanf("%f",pNumero);
 
 }
 
